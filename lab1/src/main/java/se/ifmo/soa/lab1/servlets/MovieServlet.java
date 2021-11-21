@@ -18,7 +18,7 @@ import se.ifmo.soa.lab1.dao.PageParams;
 import se.ifmo.soa.lab1.dao.PageResult;
 import se.ifmo.soa.lab1.dao.SortParams;
 import se.ifmo.soa.lab1.dto.MovieDto;
-import se.ifmo.soa.lab1.entities.Movie;
+import se.ifmo.soa.domain.Movie;
 import se.ifmo.soa.lab1.exceptions.EntityAttributeIsInvalidException;
 import se.ifmo.soa.lab1.exceptions.HttpMethodNotSupported;
 import se.ifmo.soa.lab1.exceptions.HttpRequestNotValidException;

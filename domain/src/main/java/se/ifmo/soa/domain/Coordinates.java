@@ -1,4 +1,4 @@
-package se.ifmo.soa.lab1.entities;
+package se.ifmo.soa.domain;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Min;

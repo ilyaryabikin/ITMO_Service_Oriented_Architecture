@@ -15,7 +15,10 @@ import se.ifmo.soa.lab1.utils.CachedDataHttpServletRequest;
 public class RequestWrappingFilter implements Filter {
 
   @Override
-  public void init(final FilterConfig filterConfig) throws ServletException {}
+  public void init(final FilterConfig filterConfig) {}
+
+  @Override
+  public void destroy() {}
 
   @Override
   public void doFilter(

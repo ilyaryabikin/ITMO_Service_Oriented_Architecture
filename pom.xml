@@ -11,6 +11,10 @@
 
     <name>labs</name>
 
+    <modules>
+        <module>domain</module>
+    </modules>
+
     <profiles>
         <profile>
             <id>lab1</id>
@@ -33,7 +37,11 @@
         <dependencies.hibernate-orm.version>5.5.8.Final</dependencies.hibernate-orm.version>
         <dependencies.hibernate-validator.version>6.0.22.Final</dependencies.hibernate-validator.version>
         <dependencies.javaee-api.version>8.0.1</dependencies.javaee-api.version>
-        <dependencies.jetty.version>9.4.44.v20210927</dependencies.jetty.version>
+        <dependencies.javax-persistence-api>2.2</dependencies.javax-persistence-api>
+        <dependencies.javax-servlet-api>3.1.0</dependencies.javax-servlet-api>
+        <dependencies.javax-validation-api>2.0.1.Final</dependencies.javax-validation-api>
+        <dependencies.javax-ws-rs-api>2.1.1</dependencies.javax-ws-rs-api>
+        <dependencies.jetty-bom.version>9.4.44.v20210927</dependencies.jetty-bom.version>
         <dependencies.logback-classic.version>1.2.7</dependencies.logback-classic.version>
         <dependencies.lombok.version>1.18.22</dependencies.lombok.version>
         <dependencies.postgresql.version>42.3.1</dependencies.postgresql.version>
@@ -53,6 +61,20 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>se.ifmo.soa</groupId>
+                <artifactId>domain</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-bom</artifactId>
+                <version>${dependencies.jetty-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${dependencies.logback-classic.version}</version>
@@ -63,14 +85,29 @@
                 <version>${dependencies.javaee-api.version}</version>
             </dependency>
             <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>javax.persistence-api</artifactId>
+                <version>${dependencies.javax-persistence-api}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${dependencies.javax-servlet-api}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${dependencies.javax-validation-api}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${dependencies.javax-ws-rs-api}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.eclipse</groupId>
                 <artifactId>yasson</artifactId>
                 <version>${dependencies.yasson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-servlets</artifactId>
-                <version>${dependencies.jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
@@ -111,6 +148,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -157,6 +201,29 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${project.jdk.version}</source>
+                    <target>${project.jdk.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${dependencies.lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-jpamodelgen</artifactId>
+                            <version>${dependencies.hibernate-orm.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

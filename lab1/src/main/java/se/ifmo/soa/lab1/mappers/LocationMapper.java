@@ -2,7 +2,7 @@ package se.ifmo.soa.lab1.mappers;
 
 import javax.enterprise.context.ApplicationScoped;
 import se.ifmo.soa.lab1.dto.LocationDto;
-import se.ifmo.soa.lab1.entities.Location;
+import se.ifmo.soa.domain.Location;
 
 @ApplicationScoped
 public class LocationMapper implements EntityMapper<Location, LocationDto> {

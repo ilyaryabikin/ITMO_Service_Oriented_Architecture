@@ -5,9 +5,9 @@ import javax.inject.Inject;
 import se.ifmo.soa.lab1.dto.CoordinatesDto;
 import se.ifmo.soa.lab1.dto.MovieDto;
 import se.ifmo.soa.lab1.dto.PersonDto;
-import se.ifmo.soa.lab1.entities.Coordinates;
-import se.ifmo.soa.lab1.entities.Movie;
-import se.ifmo.soa.lab1.entities.Person;
+import se.ifmo.soa.domain.Coordinates;
+import se.ifmo.soa.domain.Movie;
+import se.ifmo.soa.domain.Person;
 
 @ApplicationScoped
 public class MovieMapper implements EntityMapper<Movie, MovieDto> {

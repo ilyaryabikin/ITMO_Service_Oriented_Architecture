@@ -22,13 +22,13 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.validation.Valid;
+import se.ifmo.soa.domain.Movie;
+import se.ifmo.soa.domain.enums.Country;
+import se.ifmo.soa.domain.enums.EyeColor;
+import se.ifmo.soa.domain.enums.HairColor;
+import se.ifmo.soa.domain.enums.MovieGenre;
 import se.ifmo.soa.lab1.dao.FilterParams.FilterEntry;
 import se.ifmo.soa.lab1.dao.SortParams.SortEntry;
-import se.ifmo.soa.lab1.entities.Movie;
-import se.ifmo.soa.lab1.entities.enums.Country;
-import se.ifmo.soa.lab1.entities.enums.EyeColor;
-import se.ifmo.soa.lab1.entities.enums.HairColor;
-import se.ifmo.soa.lab1.entities.enums.MovieGenre;
 import se.ifmo.soa.lab1.exceptions.EntityAttributeIsInvalidException;
 
 @ApplicationScoped

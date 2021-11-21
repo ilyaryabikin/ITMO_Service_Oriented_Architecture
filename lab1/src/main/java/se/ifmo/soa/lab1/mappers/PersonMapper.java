@@ -4,8 +4,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import se.ifmo.soa.lab1.dto.LocationDto;
 import se.ifmo.soa.lab1.dto.PersonDto;
-import se.ifmo.soa.lab1.entities.Location;
-import se.ifmo.soa.lab1.entities.Person;
+import se.ifmo.soa.domain.Location;
+import se.ifmo.soa.domain.Person;
 
 @ApplicationScoped
 public class PersonMapper implements EntityMapper<Person, PersonDto> {

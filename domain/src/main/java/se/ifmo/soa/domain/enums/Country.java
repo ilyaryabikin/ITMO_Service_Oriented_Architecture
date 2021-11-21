@@ -1,4 +1,4 @@
-package se.ifmo.soa.lab1.entities.enums;
+package se.ifmo.soa.domain.enums;
 
 public enum Country {
   GERMANY,

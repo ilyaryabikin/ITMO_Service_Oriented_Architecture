@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import se.ifmo.soa.lab1.dao.MovieDao;
-import se.ifmo.soa.lab1.entities.Movie;
+import se.ifmo.soa.domain.Movie;
 import se.ifmo.soa.lab1.exceptions.RestfulException;
 import se.ifmo.soa.lab1.mappers.MovieMapper;
 

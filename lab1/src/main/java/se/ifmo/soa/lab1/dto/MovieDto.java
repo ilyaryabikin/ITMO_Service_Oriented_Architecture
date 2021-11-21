@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.json.bind.annotation.JsonbTransient;
 import lombok.Data;
-import se.ifmo.soa.lab1.entities.enums.MovieGenre;
+import se.ifmo.soa.domain.enums.MovieGenre;
 
 @Data
 @JsonbPropertyOrder({

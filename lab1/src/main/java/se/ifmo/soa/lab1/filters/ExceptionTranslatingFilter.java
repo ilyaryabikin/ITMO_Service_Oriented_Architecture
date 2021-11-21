@@ -32,7 +32,10 @@ public class ExceptionTranslatingFilter implements Filter {
   @Inject private Jsonb jsonb;
 
   @Override
-  public void init(final FilterConfig filterConfig) throws ServletException {}
+  public void init(final FilterConfig filterConfig) {}
+
+  @Override
+  public void destroy() {}
 
   @Override
   public void doFilter(

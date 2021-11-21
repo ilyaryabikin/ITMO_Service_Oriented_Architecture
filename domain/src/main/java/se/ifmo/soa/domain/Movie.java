@@ -1,4 +1,4 @@
-package se.ifmo.soa.lab1.entities;
+package se.ifmo.soa.domain;
 
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -22,7 +22,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import se.ifmo.soa.lab1.entities.enums.MovieGenre;
+import se.ifmo.soa.domain.enums.MovieGenre;
 
 @Entity
 @Table(name = "movies")

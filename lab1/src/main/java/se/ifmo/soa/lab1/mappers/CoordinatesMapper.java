@@ -2,7 +2,7 @@ package se.ifmo.soa.lab1.mappers;
 
 import javax.enterprise.context.ApplicationScoped;
 import se.ifmo.soa.lab1.dto.CoordinatesDto;
-import se.ifmo.soa.lab1.entities.Coordinates;
+import se.ifmo.soa.domain.Coordinates;
 
 @ApplicationScoped
 public class CoordinatesMapper implements EntityMapper<Coordinates, CoordinatesDto> {

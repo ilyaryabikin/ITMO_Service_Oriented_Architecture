@@ -1,11 +1,4 @@
-#FROM bitnami/wildfly:24.0.1-debian-10-r94
-
-#ENV WILDFLY_PASSWORD=password
-
-#COPY ${project.build.finalName}.war /opt/bitnami/wildfly/standalone/deployments
-
-#CMD ["/opt/bitnami/scripts/wildfly/run.sh", "--debug", "*:8787"]
-FROM jetty:9.4.44-jdk8
+FROM jetty:9.4.44-jdk8-slim
 
 COPY ${project.build.finalName}.war /var/lib/jetty/webapps/ROOT.war
 

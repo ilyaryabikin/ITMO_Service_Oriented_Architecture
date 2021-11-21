@@ -1,4 +1,4 @@
-package se.ifmo.soa.lab1.entities;
+package se.ifmo.soa.domain;
 
 import static javax.persistence.EnumType.STRING;
 
@@ -16,9 +16,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import se.ifmo.soa.lab1.entities.enums.Country;
-import se.ifmo.soa.lab1.entities.enums.EyeColor;
-import se.ifmo.soa.lab1.entities.enums.HairColor;
+import se.ifmo.soa.domain.enums.Country;
+import se.ifmo.soa.domain.enums.EyeColor;
+import se.ifmo.soa.domain.enums.HairColor;
 
 @Embeddable
 @NoArgsConstructor
