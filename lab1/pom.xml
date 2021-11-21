@@ -4,91 +4,73 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>se.ifmo.soa</groupId>
+    <parent>
+        <groupId>se.ifmo.soa</groupId>
+        <artifactId>labs</artifactId>
+        <version>1.0</version>
+    </parent>
+
     <artifactId>lab1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <name>lab1</name>
+
     <properties>
-        <project.jdk.version>1.8</project.jdk.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.docker>src/main/docker</project.build.docker>
         <project.build.dockerOutput>docker</project.build.dockerOutput>
-
-        <dependencies.h2.version>1.4.200</dependencies.h2.version>
-        <dependencies.hibernate-orm.version>5.5.8.Final</dependencies.hibernate-orm.version>
-        <dependencies.hibernate-validator.version>6.0.22.Final</dependencies.hibernate-validator.version>
-        <dependencies.javaee.version>8.0.1</dependencies.javaee.version>
-        <dependencies.jetty.version>9.4.44.v20210927</dependencies.jetty.version>
-        <dependencies.logback.version>1.2.7</dependencies.logback.version>
-        <dependencies.lombok.version>1.18.22</dependencies.lombok.version>
-        <dependencies.postgresql.version>42.3.1</dependencies.postgresql.version>
-        <dependencies.weld.version>3.1.8.Final</dependencies.weld.version>
-        <dependencies.yasson.version>1.0.9</dependencies.yasson.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>${dependencies.javaee.version}</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet-core</artifactId>
-            <version>${dependencies.weld.version}</version>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
-            <version>${dependencies.yasson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${dependencies.hibernate-orm.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>${dependencies.hibernate-orm.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator-cdi</artifactId>
-            <version>${dependencies.hibernate-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlets</artifactId>
-            <version>${dependencies.jetty.version}</version>
         </dependency>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${dependencies.logback.version}</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-cdi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${dependencies.lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>${dependencies.h2.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${dependencies.postgresql.version}</version>
             <scope>runtime</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -97,7 +79,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
                 <configuration>
                     <filesets>
                         <fileset>
@@ -109,7 +90,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
                 <configuration>
                     <source>${project.jdk.version}</source>
                     <target>${project.jdk.version}</target>
@@ -129,13 +109,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <id>prepare-docker</id>
