@@ -248,40 +248,33 @@ public class MovieDao implements EntityDao<Long, Movie> {
       final Path<?> path = getComplexPath(root, filterEntry.getPropertyName());
       predicates.add(
           criteriaBuilder.equal(
-              getComplexPath(root, filterEntry.getPropertyName()),
-              getSafeValue(path, filterEntry.getPropertyValue())));
+              path, getSafeValue(path.getJavaType(), filterEntry.getPropertyValue())));
     }
     return predicates;
   }
 
-  private Object getSafeValue(final Path<?> path, final String value) {
-    final Enum<?> enumValue = getEnumValue(path, value);
-    if (enumValue == null) {
-      return value;
-    }
-    return enumValue;
-  }
-
-  private Enum<?> getEnumValue(final Path<?> path, final String value) {
-    final Class<?> type = path.getJavaType();
-    if (type == EyeColor.class) {
-      return EyeColor.valueOf(value);
-    } else if (type == HairColor.class) {
-      return HairColor.valueOf(value);
-    } else if (type == Country.class) {
-      return Country.valueOf(value);
-    } else if (type == MovieGenre.class) {
-      return MovieGenre.valueOf(value);
-    }
-    return null;
-  }
-
-  private Path<?> getComplexPath(final Root<?> root, final String complexPath) {
+  private static Path<?> getComplexPath(final Root<?> root, final String complexPath) {
     final String[] paths = complexPath.split("\\.");
     Path<?> path = root.get(paths[0]);
     for (int i = 1; i < paths.length; i++) {
       path = path.get(paths[i]);
     }
     return path;
+  }
+
+  private static Object getSafeValue(final Class<?> pathJavaType, final String value) {
+    if (Enum.class.isAssignableFrom(pathJavaType)) {
+      if (pathJavaType == EyeColor.class) {
+        return EyeColor.valueOf(value);
+      } else if (pathJavaType == HairColor.class) {
+        return HairColor.valueOf(value);
+      } else if (pathJavaType == Country.class) {
+        return Country.valueOf(value);
+      } else if (pathJavaType == MovieGenre.class) {
+        return MovieGenre.valueOf(value);
+      }
+      return null;
+    }
+    return value;
   }
 }

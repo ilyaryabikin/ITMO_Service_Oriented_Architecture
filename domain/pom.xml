@@ -18,10 +18,12 @@
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
+            <version>${dependencies.javax-persistence-api.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
+            <version>${dependencies.javax-validation-api.version}</version>
         </dependency>
     </dependencies>
 </project>
