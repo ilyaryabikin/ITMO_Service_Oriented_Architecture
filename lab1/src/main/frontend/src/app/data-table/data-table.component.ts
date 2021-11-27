@@ -89,6 +89,7 @@ export class DataTableComponent {
 
   saveNewMovie() {
     this.isTableLoading = true;
+    this.isMovieDialogVisible = false;
     this.movieService.save(this.movie).subscribe({
       next: movie => {
         this.totalCount += 1;
@@ -104,12 +105,11 @@ export class DataTableComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'Error saving movie',
-          detail: err.message
+          detail: err.error.message ?? err.message
         });
       }
     }).add(() => {
       this.isTableLoading = false;
-      this.isMovieDialogVisible = false;
     })
   }
 
@@ -124,7 +124,7 @@ export class DataTableComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'Error finding movie',
-          detail: err.message
+          detail: err.error.message ?? err.message
         });
       }
     }).add(() => {
@@ -143,7 +143,7 @@ export class DataTableComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'Error finding movie',
-          detail: err.message
+          detail: err.error.message ?? err.message
         });
       }
     }).add(() => {
@@ -159,14 +159,14 @@ export class DataTableComponent {
         this.movies[index] = movie;
         this.messageService.add({
           severity: 'success',
-          summary: 'Movie successfully update'
+          summary: 'Movie successfully updated'
         });
       },
       error: err => {
         this.messageService.add({
           severity: 'error',
           summary: 'Movie failed to update',
-          detail: err.message
+          detail: err.error.message ?? err.message
         })
       }
     }).add(() => {
@@ -201,6 +201,7 @@ export class DataTableComponent {
       }
     });
 
+    this.isDeleteByScreenwriterDialogVisible = false;
     this.movieService.deleteAll(this.pageParams).subscribe({
       next: result => {
         this.messageService.add({
@@ -213,12 +214,11 @@ export class DataTableComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'Error deleting movies',
-          detail: err.message
+          detail: err.error.message ?? err.message
         })
       }
     }).add(() => {
       this.isTableLoading = false;
-      this.isDeleteByScreenwriterDialogVisible = false;
     });
   }
 
@@ -235,7 +235,7 @@ export class DataTableComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'API error',
-          detail: err.message
+          detail: err.error.message ?? err.message
         })
       }
     }).add(() => {
