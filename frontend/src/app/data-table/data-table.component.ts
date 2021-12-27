@@ -9,6 +9,7 @@ import {Country} from "../model/enum/country";
 import {MovieData} from "../model/movie-data";
 import {RequestParams} from "../model/request-params";
 import {BackendMovieService} from "../backend-movie-service/backend-movie.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-data-table',
@@ -23,6 +24,7 @@ export class DataTableComponent {
   countries: (string | Country)[] = Object.values(Country).filter(key => isNaN(Number(key)));
 
   isTableLoading: boolean = false;
+  isLosersEnabled: boolean = environment.losersEnabled;
   isMovieDialogVisible: boolean = false;
   isDeleteByScreenwriterDialogVisible: boolean = false;
   isLosersDirectorsView: boolean = false;

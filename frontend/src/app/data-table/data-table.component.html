@@ -17,9 +17,9 @@
               (click)="getByMinGenre()"></button>
       <button pButton pRipple label="Max Length Movie" class="p-button-info p-mr-2"
               (click)="getByMaxLength()"></button>
-      <button pButton pRipple label="Losers Movies" class="p-button-help p-mr-2"
+      <button *ngIf="isLosersEnabled" pButton pRipple label="Losers Movies" class="p-button-help p-mr-2"
               (click)="getLosersMovies()"></button>
-      <button pButton pRipple label="Losers Directors" class="p-button-help p-mr-2"
+      <button *ngIf="isLosersEnabled" pButton pRipple label="Losers Directors" class="p-button-help p-mr-2"
               (click)="getLosersDirectors()"></button>
       <button pButton pRipple label="Delete Movies by Screenwriter" icon="pi pi-trash" class="p-button-danger p-ml-auto"
               (click)="openDeleteByScreenwriterDialog()"></button>
