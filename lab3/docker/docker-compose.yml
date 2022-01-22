@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+
+  haproxy:
+    image: haproxy:2.5.1-alpine3.15
+    restart: on-failure
+    volumes:
+      - ./haproxy/config:/usr/local/etc/haproxy:ro
+      - ./haproxy/cert:/etc/ssl/certs/haproxy:ro
+    ports:
+      - "8098:8098"
+      - "8090:8090"
+
+  postgres:
+    image: postgres:14.1-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: lab3
+    volumes:
+      - ./postgres/data:/var/lib/postgres/data
+    ports:
+      - "5432:5432"

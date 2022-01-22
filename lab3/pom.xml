@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>se.ifmo.soa</groupId>
+        <artifactId>labs</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <groupId>se.ifmo.soa.lab3</groupId>
+    <artifactId>root</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <name>lab3-root</name>
+
+    <modules>
+        <module>dto</module>
+        <module>services.main</module>
+        <module>services.main.gateway</module>
+        <module>services.secondary.rs</module>
+        <module>services.secondary.ejb</module>
+        <module>services.secondary</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>se.ifmo.soa.lab3</groupId>
+                <artifactId>dto</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${dependencies.jackson.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

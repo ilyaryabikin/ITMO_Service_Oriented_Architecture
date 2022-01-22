@@ -39,3 +39,12 @@
 
 ### VS Code ###
 **/.vscode/
+
+### TLS Stuff ###
+*.cert
+*.crt
+*.csr
+*.pem
+*.key
+*.p12
+*.ext
